@@ -44,6 +44,10 @@ replace every {{placeholder}}. Delete this comment before publishing.
   </tr>
 </table>
 
+<!-- Optional: the analyser workflow fills this block weekly (references/analyser.md). Keep both markers. -->
+<!-- analyser:start -->
+<!-- analyser:end -->
+
 ## 🛰️ Side quests
 
 | | |

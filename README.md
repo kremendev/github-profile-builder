@@ -22,6 +22,7 @@ Ask Claude for a GitHub profile ("make my GitHub profile stand out", "redo my pr
 4. **Verifies everything.** It renders the banner in Chrome the way GitHub shows it, on dark and light themes. It checks every badge and icon (some popular ones silently render blank) and renders the Markdown with GitHub's own API.
 5. **Publishes, if you say yes.** It creates `<you>/<you>`, uploads the files, hash-checks each commit, and confirms the live page.
 6. **Optional contribution game.** A daily GitHub Action turns your contribution graph into a space shooter GIF. It runs the third-party code with a read-only token and pins every action to a commit SHA.
+7. **Optional recent activity.** A weekly Action reads your 5 most recently active public repos and updates a "what I'm working on" table on your profile. Commit messages are treated as untrusted input, so a merged PR can't inject links or HTML into your profile.
 
 ## Example
 
@@ -49,7 +50,10 @@ SKILL.md                    the workflow Claude follows
 scripts/banner_kit.py       pixel font, typing animation, sprites, stars, CSS motion, SVG assembly
 scripts/themes/             three example scenes (space, terminal, trail)
 scripts/render_check.py     screenshots a banner like GitHub renders it
+scripts/github_analyser.py  weekly recent-activity section from your last 5 active repos
 assets/space-shooter.yml    secure contribution-game workflow
+assets/analyser.yml         workflow for the analyser
+tests/                      offline analyser tests (real and hostile fixtures)
 assets/README-template.md   example section structure
 references/                 banner design guide, top-profile patterns, verified widget facts,
                             workflow security notes, browser publishing playbook

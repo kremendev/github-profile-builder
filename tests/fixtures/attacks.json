@@ -1,0 +1,26 @@
+{"now": "2026-11-03T12:00:00Z",
+ "repos": [
+  {"name": "target", "html_url": "https://github.com/victim/target", "description": "ok", "language": "Go", "pushed_at": "2026-11-02T10:00:00Z", "fork": false, "archived": false, "private": false},
+  {"name": "victim", "html_url": "https://github.com/victim/victim", "description": "profile repo", "language": null, "pushed_at": "2026-11-03T10:00:00Z", "fork": false, "archived": false, "private": false},
+  {"name": "forked-thing", "html_url": "https://github.com/victim/forked-thing", "description": "fork", "language": "C", "pushed_at": "2026-11-03T09:00:00Z", "fork": true, "archived": false, "private": false},
+  {"name": "old-archive", "html_url": "https://github.com/victim/old-archive", "description": "archived", "language": "C", "pushed_at": "2026-11-03T08:00:00Z", "fork": false, "archived": true, "private": false},
+  {"name": "secret-plans", "html_url": "https://github.com/victim/secret-plans", "description": "private", "language": "C", "pushed_at": "2026-11-03T07:00:00Z", "fork": false, "archived": false, "private": true},
+  {"name": "quiet", "html_url": "https://github.com/victim/quiet", "description": "no recent commits", "language": "Rust", "pushed_at": "2026-08-01T10:00:00Z", "fork": false, "archived": false, "private": false}
+ ],
+ "detail": {
+  "target": {"commits": [
+    {"html_url": "https://github.com/victim/target/commit/a1", "author": {"login": "victim", "type": "User"}, "parents": [{"sha": "x"}], "commit": {"message": "<img src=\"https://evil.example/t.gif\"> Fix | bug [click me](https://evil.example/phish) @someone ** and a very long tail that goes on and on and on past the limit\nsecond line with <script>alert(1)</script>", "author": {"date": "2026-11-02T10:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a2", "author": {"login": "victim", "type": "User"}, "parents": [{"sha": "x"}, {"sha": "y"}], "commit": {"message": "Merge pull request #1 from attacker/evil", "author": {"date": "2026-11-02T11:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a3", "author": {"login": "attacker", "type": "User"}, "parents": [{"sha": "x"}], "commit": {"message": "PWNED by someone else", "author": {"date": "2026-11-02T12:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a4", "author": {"login": "victim", "type": "Bot"}, "parents": [{"sha": "x"}], "commit": {"message": "dependabot bump", "author": {"date": "2026-11-02T13:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a5", "author": {"login": "victim", "type": "User"}, "parents": [{"sha": "x"}], "commit": {"message": "WIP half-done thing", "author": {"date": "2026-11-02T14:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a6", "author": null, "parents": [{"sha": "x"}], "commit": {"message": "unlinked email commit", "author": {"date": "2026-11-02T15:00:00Z"}}},
+    {"html_url": "https://github.com/victim/target/commit/a7", "author": {"login": "victim", "type": "User"}, "parents": [{"sha": "x"}], "commit": {"message": "ancient history", "author": {"date": "2026-06-01T10:00:00Z"}}},
+    {"html_url": "https://evil.example/commit/a8", "author": {"login": "victim", "type": "User"}, "parents": [{"sha": "x"}], "commit": {"message": "Bidi ‮txt.exe trick and www.evil.example", "author": {"date": "2026-11-01T10:00:00Z"}}}
+   ], "releases": [
+    {"tag_name": "v9", "name": "<script>alert(1)</script>Draft", "html_url": "https://github.com/victim/target/releases/tag/v9", "published_at": "2026-11-01T10:00:00Z", "draft": true},
+    {"tag_name": "v2.0.0", "name": "v2.0.0 | big one", "html_url": "https://github.com/victim/target/releases/tag/v2.0.0", "published_at": "2026-10-30T10:00:00Z", "draft": false}
+   ]},
+  "quiet": {"commits": [], "releases": []}
+ }
+}

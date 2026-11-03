@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.1.0 (2026-11-03)
+
+- **Profile analyser:** an optional weekly "recent activity" section built from the 5 most recently active public repos. It shows a status dot, the latest meaningful commit, releases shipped, and totals.
+  - Treats commit text as untrusted: strips HTML, links, control and bidi characters, escapes Markdown, neutralises @mentions.
+  - Counts only the owner's own commits, skipping bots, merges and wip commits.
+  - Uses fixed dates, so quiet weeks don't commit. Standard library only, with a pinned checkout.
+- **Images are off-limits** to the analyser. It writes only between its markers in `README.md` and never emits image syntax. A workflow guard fails the run if any other file, or any text outside the markers, would change.
+- **Offline tests** (`tests/`), with a real-data fixture and a hostile one.
+- **Git publishing route:** push when the session has access, and tag through a GitHub Release when tag pushes are refused.
+- **No AI co-author trailers** on commits in the person's repos by default.
+- `CLAUDE.md` with this repo's attribution and release rules.
+
 ## v1.0.0 (2026-11-03)
 
 First release.

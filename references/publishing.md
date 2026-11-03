@@ -1,7 +1,18 @@
-# Publishing the profile through the browser
+# Publishing the profile
 
-Use this when there's no git or `gh` access to the person's GitHub, only a
-browser tool. With a git remote and credentials you'd simply push.
+## The git route (when the session has push access)
+
+If the session can attach the repo with push access (an `add_repo`-style tool), use git. It's faster, gives clean commit messages, and needs no file injection:
+
+1. The person creates the empty repo on github.com, or approves you clicking **Create repository**.
+2. Attach it with push access, clone it, add the files, and commit as the person: their name and their `<user>@users.noreply.github.com` email. **Add no AI co-author or session trailers** unless they ask.
+3. `git push -u origin main`.
+4. **Tags may be refused** (HTTP 403 on tag pushes). Don't retry or work around it. Create the version tag through a GitHub Release instead: open `/<u>/<repo>/releases/new?tag=vX.Y.Z&target=main&title=...&body=...` (the fields prefill from the URL), and the person clicks **Publish release**.
+5. **Rewriting published history** (`--force`) is destructive. Ask first, every time.
+
+## The browser route
+
+Use this when there's no git access to the person's GitHub, only a browser tool.
 
 ## 1. Sign-in
 

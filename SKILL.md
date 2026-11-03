@@ -18,6 +18,9 @@ The bundled files hold the hard-won parts:
 | `scripts/render_check.py` | Screenshots an SVG inside `<img>`, like GitHub, on dark and light pages at several moments |
 | `references/banner-design.md` | How to design a new banner from the person's info. Read before building the banner. |
 | `assets/space-shooter.yml` | Secure daily workflow that turns the contribution graph into a space shooter GIF |
+| `scripts/github_analyser.py`, `assets/analyser.yml` | Weekly "recent activity" section built from the 5 most recently active public repos |
+| `references/analyser.md` | Analyser setup, options, security design and offline testing. Read if adding the section. |
+| `tests/` | Offline tests and fixtures for the analyser (`python3 -m unittest discover tests`) |
 | `assets/README-template.md` | Example section structure to adapt |
 | `references/design-patterns.md` | Patterns from top profiles, and content rules. Read before planning. |
 | `references/widgets.md` | Verified facts about badges, icons and GitHub rendering, with check snippets. Read before adding any external image. |
@@ -56,6 +59,11 @@ Read `references/design-patterns.md`. Choose 3 to 5 patterns that fit the person
 3. **Contribution game (optional).** Copy `assets/space-shooter.yml` to `.github/workflows/`.
    - Refresh its pins first (workflow.md).
    - Never use the upstream example's single write-permission job.
+4. **Recent activity (optional).** A weekly section showing what the person is working on, built from their 5 most recently active public repos. Follow `references/analyser.md`:
+   - add the markers to the README
+   - copy the script and workflow
+   - ask which repos to exclude
+   - name the section in the profile's theme language
 
 ### 4. Verify before showing anything
 
@@ -65,6 +73,7 @@ Read `references/design-patterns.md`. Choose 3 to 5 patterns that fit the person
 | Every external image | Run the checks in widgets.md. Shields logos and icon IDs break silently. |
 | Markdown | Render with GitHub's markdown API in `gfm` mode. Headings, tables, checkboxes and code highlighting present, no comment leaks. |
 | Workflow | `yaml.safe_load` parses it, every `uses:` is pinned to a 40-character SHA, and the permissions are split. Dry-run the publish step's git commands on a scratch repo. |
+| Analyser | `python3 -m unittest discover tests` passes. Capture the person's data as a fixture (analyser.md), print their section, render it, and check the 5 repos and the counts look right. |
 
 ### 5. Show the draft
 
@@ -99,3 +108,5 @@ Follow `references/publishing.md`:
 - GitHub's markdown API in `markdown` mode hides task lists. Use `gfm`.
 - Files copied into the shared outputs folder can gain a C2PA provenance block. Hash-check against the staged copy.
 - Typing into the upload page's commit-message field may silently fail. Read it back before committing.
+- A session with git push access may still be refused tag pushes (HTTP 403). Create the version tag through a GitHub Release instead.
+- Don't add AI co-author trailers (`Co-Authored-By`, `Claude-Session`) to commits in the person's repos unless they ask for them. A profile is their personal showcase, and removing trailers later means rewriting published history.
