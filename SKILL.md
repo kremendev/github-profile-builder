@@ -1,6 +1,6 @@
 ---
 name: github-profile-builder
-description: Design, build and publish a standout GitHub profile README: a banner made for the person, project cards, verified widgets, weekly activity. Use for any GitHub profile or profile README request.
+description: Design, build and publish a standout GitHub profile README with a banner made for the person, project cards, verified widgets and weekly activity. Use for any GitHub profile or profile README request.
 ---
 
 # GitHub profile builder
