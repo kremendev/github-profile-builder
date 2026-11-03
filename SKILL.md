@@ -1,6 +1,6 @@
 ---
 name: github-profile-builder
-description: Design, build and publish a standout GitHub profile README (the special username/username repo) with an animated banner designed around the person's own interests, project cards, verified widgets and an optional secure contribution-graph game. Use this whenever someone wants to create, redesign, refresh or publish their GitHub profile, profile page, profile README or "about me" section on GitHub, asks to make their GitHub look better or more professional for recruiters, or wants a banner, badges, stats or a contribution animation for it, even if they don't say "README".
+description: Design, build and publish a standout GitHub profile README: a banner made for the person, project cards, verified widgets, weekly activity. Use for any GitHub profile or profile README request.
 ---
 
 # GitHub profile builder
