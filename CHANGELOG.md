@@ -12,7 +12,7 @@
 - **Git publishing route:** push when the session has access, and tag through a GitHub Release when tag pushes are refused.
 - **No AI co-author trailers** on commits in the person's repos by default.
 - `CLAUDE.md` with this repo's attribution and release rules.
-- Skill description shortened to 193 characters, so the zip uploads in the Claude apps (their limit is 200).
+- Skill description shortened to 200 characters (no colons, valid YAML), so the zip uploads in the Claude apps, which allow at most 200.
 
 ## v1.0.0 (2026-11-03)
 
