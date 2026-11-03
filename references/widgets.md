@@ -11,6 +11,14 @@ sites. Run checks with the browser tool's JavaScript instead: open any page on
 the target site (same-origin `fetch` avoids CORS), or a `github.com` page for
 GitHub API and raw-file reads.
 
+## API budget
+
+Unauthenticated GitHub API calls from the browser are limited to **60 an hour** per network, and a busy session can use them up. Check with `GET /rate_limit`.
+- Batch checks into a few calls.
+- Use `git fetch` plus `git show` / `git diff` to inspect pushed content, since git isn't rate-limited.
+- Use raw.githubusercontent.com for file contents.
+- Workflow runs use their own token with a much higher limit.
+
 ## shields.io badges
 
 - Logos come from Simple Icons, which removes and renames brands.

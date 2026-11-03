@@ -7,6 +7,7 @@
   - Counts only the owner's own commits, skipping bots, merges and wip commits.
   - Uses fixed dates, so quiet weeks don't commit. Standard library only, with a pinned checkout.
 - **Images are off-limits** to the analyser. It writes only between its markers in `README.md` and never emits image syntax. A workflow guard fails the run if any other file, or any text outside the markers, would change.
+- **Ranking by real work:** repos are ranked by the owner's latest own commit, not GitHub's `pushed_at`, which force-pushes and rewrites reset. Found in the first live week, with a regression test.
 - **Offline tests** (`tests/`), with a real-data fixture and a hostile one.
 - **Git publishing route:** push when the session has access, and tag through a GitHub Release when tag pushes are refused.
 - **No AI co-author trailers** on commits in the person's repos by default.

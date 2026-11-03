@@ -111,6 +111,26 @@ class ReadmeUpdate(unittest.TestCase):
         self.assertIn("pinhole-ai", out)  # the next most recent repo moves up
 
 
+class RankingIgnoresPushNoise(unittest.TestCase):
+    """Regression: a history rewrite force-pushed three repos, which reset their
+    pushed_at, and the old ranking put a repo nobody had worked on into the table."""
+
+    def test_force_push_does_not_count_as_activity(self):
+        data = json.loads((FIX / "kremendev.json").read_text())
+        rewrite_time = "2026-11-03T11:50:00Z"
+        for r in data["repos"]:
+            if r["name"] in ("pinhole-ai", "pinhole-manual", "good-prompt-reminder"):
+                r["pushed_at"] = rewrite_time
+        data["detail"]["pinhole-ai"] = {"releases": [], "commits": [{
+            "html_url": "https://github.com/kremendev/pinhole-ai/commit/d86388a",
+            "author": {"login": "kremendev", "type": "User"}, "parents": [{"sha": "x"}],
+            "commit": {"message": "Package and upload PDF + zipped site", "author": {"date": "2026-10-05T21:02:42Z"}}}]}
+        out = ga.build_section(data, "kremendev")
+        names = [r.split("[**")[1].split("**]")[0].replace("\\_", "_") for r in rows(out)]
+        self.assertEqual(names, ["github-profile-builder", "world-of-agents", "good-prompt-reminder",
+                                 "CollegeTasks_Modal", "pinhole-manual"])
+
+
 class ImagesAreOffLimits(unittest.TestCase):
     """Once the banner and other images exist, the analyser must never change them."""
 

@@ -11,7 +11,7 @@ active public repos**, never all of them, and rewrite the block between:
 
 ## What the section shows
 
-- **A table of the last 5 active repos**, newest push first. Each row has:
+- **A table of the last 5 active repos**, ranked by the date of the owner's own latest commit. GitHub's `pushed_at` is only used to shortlist 10 candidates, because any push (a force-push, a history rewrite, a bot) resets it without real work happening. Each row has:
   - a status dot: 🟢 this week, 🟡 this month, ⚪ quieter
   - the repo name and language
   - the latest meaningful commit, linked, plus how many more there were in the window
